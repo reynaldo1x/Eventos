@@ -43,21 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IEvento.cs" />
-    <Compile Include="Interfaces\ILeerArchivoCSV.cs" />
-    <Compile Include="Interfaces\ILeerArchivoTexto.cs" />
-    <Compile Include="Interfaces\IValidarConexion.cs" />
-    <Compile Include="Interfaces\IValidarFecha.cs" />
-    <Compile Include="Logica\Evento.cs" />
-    <Compile Include="Logica\LeerArchivoTexto.cs" />
-    <Compile Include="Logica\ValidarConexion.cs" />
-    <Compile Include="Logica\ValidarFecha.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
