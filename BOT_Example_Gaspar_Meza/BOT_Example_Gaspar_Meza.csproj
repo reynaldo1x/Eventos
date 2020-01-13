@@ -43,15 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\EventoDTO.cs" />
+    <Compile Include="Interfaces\ICalcularAnio.cs" />
+    <Compile Include="Interfaces\ICalcularDia.cs" />
+    <Compile Include="Interfaces\ICalcularMes.cs" />
+    <Compile Include="Interfaces\ICalcularTiempo.cs" />
+    <Compile Include="Interfaces\ICalculo.cs" />
     <Compile Include="Interfaces\IEvento.cs" />
     <Compile Include="Interfaces\ILeerArchivoCSV.cs" />
     <Compile Include="Interfaces\ILeerArchivoTexto.cs" />
+    <Compile Include="Interfaces\IValidarAnio.cs" />
     <Compile Include="Interfaces\IValidarConexion.cs" />
-    <Compile Include="Interfaces\IValidarFecha.cs" />
+    <Compile Include="Interfaces\IValidarDia.cs" />
+    <Compile Include="Interfaces\IValidarMes.cs" />
+    <Compile Include="Logica\CalcularAnio.cs" />
+    <Compile Include="Logica\CalcularDia.cs" />
+    <Compile Include="Logica\CalcularMes.cs" />
+    <Compile Include="Logica\Calculo.cs" />
+    <Compile Include="Logica\ValidarAnio.cs" />
+    <Compile Include="Logica\CalcularTiempo.cs" />
     <Compile Include="Logica\Evento.cs" />
+    <Compile Include="Logica\IVisorMensajes.cs" />
     <Compile Include="Logica\LeerArchivoTexto.cs" />
     <Compile Include="Logica\ValidarConexion.cs" />
-    <Compile Include="Logica\ValidarFecha.cs" />
+    <Compile Include="Logica\ValidarDia.cs" />
+    <Compile Include="Logica\ValidarMes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

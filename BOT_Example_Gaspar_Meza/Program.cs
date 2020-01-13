@@ -11,21 +11,21 @@ namespace BOT_Example_Gaspar_Meza
 {
     class Program 
     {
-        private static readonly IEvento _Evento = new Evento(new ValidarConexion(), new ValidarFecha(), new LeerArchivoTexto());
-        public static DateTime dtActual, dtUser;
+        private static readonly IEvento _Evento = new Evento(new ValidarConexion(), new LeerArchivoTexto(), new VisorMensajes(), new CalcularTiempo());
+        public static DateTime dtActual;
+        public static string path = string.Empty;
 
         static void Main(string[] args)
         {
-            //Program p = new Program(new Evento());
+            path = Path.Combine(Environment.CurrentDirectory, "example.txt");
             dtActual = DateTime.Now.Date;
-            //_Evento.MostrarInformacion();
             Mostrar();
             Console.ReadLine();
         }
 
         public static void Mostrar()
         {
-            _Evento.MostrarInformacion();
+            _Evento.MostrarInformacion(path);
         }      
     }
 

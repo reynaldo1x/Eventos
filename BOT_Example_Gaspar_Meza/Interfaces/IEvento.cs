@@ -8,8 +8,8 @@ namespace BOT_Example_Gaspar_Meza.Interfaces
 {
     public interface IEvento
     {
-        void MostrarInformacion();
+        void MostrarInformacion(string path);
+        Func<DateTime> dtActual { get; set; }
 
-        void ObtenerEvento(string[] cLineas);
     }
 }

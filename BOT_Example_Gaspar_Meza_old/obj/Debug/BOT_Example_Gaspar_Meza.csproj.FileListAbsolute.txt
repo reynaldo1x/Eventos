@@ -1,7 +1,0 @@
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\bin\Debug\BOT_Example_Gaspar_Meza.exe.config
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\bin\Debug\BOT_Example_Gaspar_Meza.exe
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\bin\Debug\BOT_Example_Gaspar_Meza.pdb
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\obj\Debug\BOT_Example_Gaspar_Meza.csprojAssemblyReference.cache
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\obj\Debug\BOT_Example_Gaspar_Meza.csproj.CoreCompileInputs.cache
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\obj\Debug\BOT_Example_Gaspar_Meza.exe
-C:\Users\gaspar.meza\Documents\Visual Studio 2019\Projects\BOT_Example_Gaspar_Meza\obj\Debug\BOT_Example_Gaspar_Meza.pdb

@@ -11,35 +11,48 @@ namespace BOT_Example_Gaspar_Meza.Logica
     public class Evento : IEvento
     {
         private readonly IValidarConexion _ValidarConexion;
-        private readonly IValidarFecha _ValidarFecha;
         private readonly ILeerArchivoTexto _LeerArchivo;
-        public static DateTime dtActual, dtUser;
+        private readonly IVisorMensajes _VisorMensaje;
+        //private static readonly ICalcularTiempo _Evento = new CalcularTiempo(new CalcularAnio(), new ValidarMes(), new ValidarSemana());
+        private readonly ICalcularTiempo _Calcular;
 
-        public Evento(ValidarConexion ValidarConexion, ValidarFecha ValidarFecha, LeerArchivoTexto LeerArchivoTexto)
+        public Func<DateTime> dtActual { get; set; }
+        //public Evento(IValidarConexion ValidarConexion, IValidarFecha ValidarFecha, ILeerArchivoTexto LeerArchivoTexto, IVisorMensajes VisorMensaje, ICalcularTiempo CalcularTiempo)
+        //{
+        //    _ValidarConexion = ValidarConexion;
+        //    _ValidarFecha = ValidarFecha;
+        //    _LeerArchivo = LeerArchivoTexto;
+        //    this._VisorMensaje = VisorMensaje;
+        //    this._CalcularTiempo = CalcularTiempo;
+        //    dtActual = () => DateTime.Now;
+        //}
+
+        public Evento(IValidarConexion ValidarConexion, ILeerArchivoTexto LeerArchivoTexto, IVisorMensajes VisorMensaje, ICalcularTiempo calcular)
         {
             _ValidarConexion = ValidarConexion;
-            _ValidarFecha = ValidarFecha;
             _LeerArchivo = LeerArchivoTexto;
+            this._VisorMensaje = VisorMensaje;
+            dtActual = () => DateTime.Now;
+            _Calcular = calcular; 
         }
 
-        public void MostrarInformacion()
+        public void MostrarInformacion(string path)
         {
-            string ruta = Path.Combine(Environment.CurrentDirectory, "example.txt");
-
             //Valida existe la conexión          
-            _ValidarConexion.Validar(ruta);
+            _ValidarConexion.Validar(path);
 
             //Obtiene los datos
-            string[] cLineas = _LeerArchivo.ObtenerDatos(ruta);
+            string[] cLineas = _LeerArchivo.ObtenerDatos(path);
 
             ObtenerEvento(cLineas);
         }
 
-        public void ObtenerEvento(string[] cLineas)
+        private void ObtenerEvento(string[] cLineas)
         {
+
             string cMensaje = string.Empty;
             string c1, c2;
-
+            DateTime dtUser;
             foreach (string line in cLineas)
             {
                 c1 = ValidaCadena(line, 0);
@@ -51,21 +64,14 @@ namespace BOT_Example_Gaspar_Meza.Logica
 
                 dtUser = Convert.ToDateTime(c2);
 
-                cMensaje = _ValidarFecha.CalcularAnio(dtActual, dtUser);
+                cMensaje = _Calcular.CalcularMomentoDelTiempo(dtActual(), dtUser);
                 if (!string.IsNullOrEmpty(cMensaje))
-                    Console.WriteLine(string.Format("El evento {0} {1}", c1, cMensaje));
+                    _VisorMensaje.MostrarMensaje(string.Format("El evento {0} {1}", c1, cMensaje));
 
-                cMensaje = _ValidarFecha.CalcularMes(dtActual, dtUser);
-                if (!string.IsNullOrEmpty(cMensaje))
-                    Console.WriteLine(string.Format("El evento {0} {1}", c1, cMensaje));
-
-                cMensaje = _ValidarFecha.CalcularDia(dtActual, dtUser);
-                if (!string.IsNullOrEmpty(cMensaje))
-                    Console.WriteLine(string.Format("El evento {0} {1}", c1, cMensaje));
             }
         }
-
-        public string ValidaCadena(string cCadena, int pos)
+        
+        private string ValidaCadena(string cCadena, int pos)
         {
             string cInfo = string.Empty;
 
